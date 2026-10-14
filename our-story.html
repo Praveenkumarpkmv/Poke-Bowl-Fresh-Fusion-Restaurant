@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our Story – how Poke Bowl & Fresh Fusion grew from a farmers market stall to a beloved neighborhood kitchen. Meet the people and moments behind it.">
+    <title>Our Story | Poke Bowl & Fresh Fusion</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF7B54'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23FF7B54'/%3E%3Cpath d='M7 12h10M12 7v10' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #FFF9F2;
+            --bg-secondary: #FFF0E6;
+            --card-bg: #FFFFFF;
+            --text-main: #3E2C1C;
+            --text-heading: #1F1A16;
+            --text-dim: #7A6A5C;
+            --accent: #FF7B54;
+            --accent-light: rgba(255,123,84,0.12);
+            --accent-soft: rgba(255,123,84,0.06);
+            --accent-dark: #E55A2B;
+            --border-dim: rgba(255, 123, 84, 0.2);
+            --navbar-bg: #FFFFFFF2;
+            --footer-bg: #2C1E14;
+            --footer-text: #CBB9AB;
+            --heading-font: 'Baloo 2', cursive;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1A1410;
+            --bg-secondary: #241E18;
+            --card-bg: #2C241E;
+            --text-main: #F0E6DE;
+            --text-heading: #FFF9F5;
+            --text-dim: #B8A89C;
+            --accent: #FF8B66;
+            --accent-light: rgba(255,139,102,0.15);
+            --accent-soft: rgba(255,139,102,0.08);
+            --accent-dark: #E55A2B;
+            --border-dim: rgba(255, 139, 102, 0.25);
+            --navbar-bg: #1A1410F2;
+            --footer-bg: #0F0C0A;
+            --footer-text: #B8A89C;
+        }
+
+        html, body { overflow-x: hidden; width: 100%; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--body-font);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.7;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            color: var(--text-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* RTL */
+        [dir="rtl"] { text-align: right; }
+        [dir="rtl"] .navbar-flex,
+        [dir="rtl"] .hero-actions,
+        [dir="rtl"] .footer-main,
+        [dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+        [dir="rtl"] .footer-links a:hover { transform: translateX(-5px); }
+        [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+
+        /* LOGO */
+        .logo {
+            display: flex; align-items: center; gap: 0.7rem;
+            text-decoration: none; flex-shrink: 0; line-height: 1;
+        }
+        .logo:hover { transform: scale(1.02); }
+        .logo-icon {
+            width: 3rem; height: 3rem; background: var(--accent);
+            border-radius: 0.9rem; display: flex; align-items: center; justify-content: center;
+            color: #FFFFFF; font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(255,123,84,0.35); flex-shrink: 0;
+        }
+        .logo-text-wrapper { display: flex; flex-direction: column; justify-content: center; line-height: 1.15; }
+        .logo-text {
+            white-space: nowrap; font-size: 1.4rem; font-weight: 800;
+            color: var(--text-heading); font-family: var(--heading-font);
+            letter-spacing: -0.02em;
+        }
+        .logo-text span { color: var(--accent); }
+        .logo-tagline {
+            font-size: 0.6rem; color: var(--text-dim); font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.1rem;
+        }
+
+        /* NAVBAR */
+        .navbar-container {
+            background-color: var(--navbar-bg);
+            backdrop-filter: blur(20px);
+            border: 1.5px solid var(--border-dim);
+            position: fixed; top: 1rem; width: 99%; max-width: 1600px;
+            left: 50%; transform: translateX(-50%);
+            border-radius: 2rem; z-index: 1000;
+            padding: 0.6rem 1.4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .navbar-flex {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 0.75rem; width: 100%; flex-wrap: nowrap;
+        }
+        .desktop-nav {
+            display: flex; align-items: center; gap: 0.15rem;
+            background: var(--accent-soft); padding: 0.3rem;
+            border-radius: 60px; flex-wrap: nowrap;
+            justify-content: center; flex-shrink: 1; min-width: 0;
+        }
+        .nav-link {
+            color: var(--text-main); padding: 0.45rem 0.85rem;
+            transition: 0.2s; font-weight: 600; font-size: 0.82rem;
+            border-radius: 40px; cursor: pointer; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            white-space: nowrap; font-family: var(--body-font); flex-shrink: 0;
+        }
+        .nav-link:hover { color: var(--accent); background-color: var(--accent-light); }
+        .nav-link.active { background: var(--accent); color: #FFFFFF; font-weight: 700; }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 0;
+            background-color: var(--card-bg);
+            border: 1.5px solid var(--accent);
+            border-radius: 16px; min-width: 170px;
+            opacity: 0; visibility: hidden;
+            transform: translateY(12px); transition: 0.25s;
+            z-index: 1000; padding: 0.5rem 0;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-item {
+            display: block; padding: 10px 20px;
+            color: var(--text-main); text-decoration: none;
+            transition: 0.2s; font-weight: 500; font-size: 0.9rem;
+        }
+        .dropdown-item:hover { background-color: var(--accent); color: #FFFFFF; padding-left: 26px; }
+        [dir="rtl"] .dropdown-item:hover { padding-left: 20px; padding-right: 26px; }
+        .dropdown-item.active { color: var(--accent); font-weight: 700; }
+        .dropdown-item.active:hover { color: #FFFFFF; }
+
+        .navbar-right-desktop { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+        .icon-btn {
+            width: 2.3rem; height: 2.3rem;
+            background-color: var(--accent-light); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--accent); border: 1.5px solid var(--accent);
+            cursor: pointer; transition: 0.2s; font-size: 0.9rem; flex-shrink: 0;
+        }
+        .icon-btn:hover { background-color: var(--accent); color: #FFFFFF; transform: scale(1.05); }
+
+        .enquiry-btn {
+            background-color: var(--accent); color: #FFFFFF;
+            border: 2px solid var(--accent); padding: 0.5rem 1.3rem;
+            border-radius: 40px; font-weight: 700; font-size: 0.82rem;
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            text-decoration: none; transition: 0.2s; white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(255,123,84,0.25); flex-shrink: 0;
+        }
+        .enquiry-btn:hover { background-color: transparent; transform: translateY(-2px); color: var(--accent); }
+
+        .mobile-menu-btn { 
+            display: none; 
+            color: var(--text-heading); 
+            font-size: 1.35rem; 
+            background: var(--accent-light); 
+            border: 1.5px solid var(--accent); 
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            cursor: pointer; 
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        .mobile-menu-btn:hover {
+            background: var(--accent);
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg-primary); z-index: 9999;
+            overflow-y: auto; transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        [dir="rtl"] .mobile-menu { transform: translateX(100%); }
+        [dir="rtl"] .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.5rem; border-bottom: 1.5px solid var(--accent);
+        }
+        .mobile-menu-close {
+            background: none; border: none; font-size: 2rem;
+            color: var(--text-heading); cursor: pointer;
+        }
+        .mobile-menu-items { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.25rem; }
+        .mobile-nav-item {
+            display: flex; align-items: center; padding: 0.8rem 0;
+            color: var(--text-main); font-size: 1rem; font-weight: 600;
+            text-decoration: none; border-bottom: 1px solid var(--border-dim);
+            transition: 0.2s;
+        }
+        .mobile-nav-item.active {
+            color: var(--accent); font-weight: 700;
+            padding-left: 0.5rem; border-left: 3px solid var(--accent);
+        }
+        .mobile-nav-item:hover { color: var(--accent); padding-left: 0.5rem; }
+
+        .mobile-dropdown { width: 100%; }
+        .mobile-dropdown-btn {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0.8rem 0; color: var(--text-main); font-size: 1rem;
+            font-weight: 600; background: none; border: none; width: 100%;
+            text-align: left; cursor: pointer; border-bottom: 1px solid var(--border-dim);
+        }
+        .mobile-dropdown-btn:hover { color: var(--accent); }
+        .mobile-dropdown-content {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+            background: var(--bg-secondary); border-radius: 16px; margin-top: 0.5rem;
+        }
+        .mobile-dropdown-content.active { max-height: 300px; padding: 0.5rem 0; }
+        .mobile-dropdown-content a {
+            display: block; padding: 0.7rem 1rem; color: var(--text-dim);
+            text-decoration: none; border-bottom: 1px solid var(--border-dim);
+            transition: 0.2s; font-weight: 500;
+        }
+        .mobile-dropdown-content a.active { color: var(--accent); font-weight: 700; }
+        .mobile-dropdown-content a:hover { color: var(--accent); padding-left: 2rem; }
+
+        .mobile-action-buttons { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+        .mobile-action-btn {
+            display: flex; align-items: center; gap: 0.8rem;
+            padding: 0.8rem 0; color: var(--text-main); font-size: 1rem;
+            font-weight: 600; background: none; border: none;
+            border-bottom: 1px solid var(--border-dim);
+            cursor: pointer; width: 100%; text-align: left;
+            transition: 0.2s; text-decoration: none;
+        }
+        .mobile-action-btn:hover { color: var(--accent); padding-left: 0.5rem; }
+        .mobile-enquiry-btn {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.6rem; margin-top: 0.8rem; padding: 1rem;
+            background-color: var(--accent); color: #FFFFFF;
+            border-radius: 16px; font-weight: 700; font-size: 1.05rem;
+            text-decoration: none; transition: 0.2s;
+            box-shadow: 0 6px 18px rgba(255,123,84,0.3);
+        }
+        .mobile-enquiry-btn:hover { background-color: var(--accent-dark); transform: translateY(-2px); }
+
+        /* Responsive nav */
+        /* ===== RESPONSIVE NAVBAR BREAKPOINTS ===== */
+        @media (min-width: 1400px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+            .nav-link { font-size: 0.84rem; padding: 0.45rem 0.85rem; }
+            .enquiry-btn { font-size: 0.84rem; padding: 0.45rem 1.25rem; }
+            .navbar-container { padding: 0.65rem 1.4rem; }
+        }
+        @media (min-width: 1250px) and (max-width: 1399px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+            .nav-link { font-size: 0.78rem; padding: 0.38rem 0.65rem; }
+            .enquiry-btn { font-size: 0.78rem; padding: 0.4rem 1rem; }
+            .icon-btn { width: 2.1rem; height: 2.1rem; font-size: 0.82rem; }
+            .logo-icon { width: 2.7rem; height: 2.7rem; font-size: 1.3rem; }
+            .logo-text { font-size: 1.25rem; }
+            .navbar-container { padding: 0.55rem 1.1rem; }
+        }
+        @media (max-width: 1249px) {
+            .desktop-nav { display: none !important; }
+            .navbar-right-desktop { display: none !important; }
+            .mobile-menu-btn { display: flex !important; align-items: center; justify-content: center; }
+            .navbar-container { padding: 0.6rem 1.2rem; width: 95%; }
+            .logo-icon { width: 2.7rem; height: 2.7rem; font-size: 1.3rem; }
+            .logo-text { font-size: 1.25rem; }
+        }
+        @media (max-width: 768px) {
+            .navbar-container { padding: 0.55rem 1rem; border-radius: 1.5rem; width: 94%; top: 0.75rem; }
+            .logo-icon { width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
+            .logo-text { font-size: 1.15rem; }
+            .logo-tagline { font-size: 0.52rem; }
+            .mobile-menu-btn { width: 2.4rem; height: 2.4rem; font-size: 1.25rem; }
+        }
+        @media (max-width: 480px) {
+            .navbar-container { padding: 0.45rem 0.8rem; border-radius: 1.25rem; width: 94%; top: 0.6rem; }
+            .logo-icon { width: 2.3rem; height: 2.3rem; font-size: 1.1rem; border-radius: 0.7rem; }
+            .logo-text { font-size: 1.05rem; }
+            .logo-tagline { font-size: 0.48rem; }
+            .mobile-menu-btn { width: 2.2rem; height: 2.2rem; font-size: 1.15rem; }
+        }
+        @media (max-width: 360px) {
+            .navbar-container { padding: 0.4rem 0.65rem; border-radius: 1rem; width: 96%; }
+            .logo-icon { width: 2rem; height: 2rem; font-size: 0.95rem; }
+            .logo-text { font-size: 0.95rem; }
+            .logo-tagline { display: none; }
+            .mobile-menu-btn { width: 2rem; height: 2rem; font-size: 1.05rem; }
+        }
+        
+
+        /* ===== HERO ===== */
+        .hero-page {
+            min-height: 60vh; width: 100%; position: relative;
+            display: flex; align-items: center;
+            overflow: hidden; background: var(--bg-secondary);
+            padding-top: 6rem;
+        }
+        .hero-page::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 50%, var(--accent) 100%);
+            z-index: 20;
+        }
+        .hero-page-grid {
+            position: relative; z-index: 10;
+            display: grid; grid-template-columns: 1fr;
+            gap: 3rem; width: 100%;
+            padding-top: 3rem; padding-bottom: 4rem;
+            align-items: center;
+        }
+        @media (min-width: 992px) { .hero-page-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-content-left { animation: fadeInUp 0.8s ease-out; }
+        .hero-sub {
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; margin-bottom: 1rem;
+            color: var(--accent); background: var(--accent-light);
+            display: inline-block; padding: 0.35rem 1.2rem; border-radius: 40px;
+            border: 1px solid rgba(255,123,84,0.3);
+        }
+        .hero-title { font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.2rem; color: var(--text-heading); }
+        .hero-title span { color: var(--accent); }
+        .hero-description { font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; color: var(--text-main); max-width: 90%; }
+        @media (max-width: 991px) {
+            .hero-content-left { text-align: center; }
+            .hero-sub { margin-left: auto; margin-right: auto; }
+            .hero-description { margin-left: auto; margin-right: auto; }
+        }
+        .hero-image-main {
+            width: 100%; height: 400px; border-radius: 2rem;
+            overflow: hidden; border: 3px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(255,123,84,0.15);
+        }
+        .hero-image-main img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* ===== SHARED SECTION ===== */
+        .section { padding: 6rem 0; position: relative; }
+        .section-alt { background-color: var(--bg-secondary); }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-badge { color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; font-size: 0.75rem; display: block; margin-bottom: 0.5rem; }
+        .section-title { font-size: 2.8rem; margin-bottom: 1rem; color: var(--text-heading); }
+
+        /* ===== SECTION 1 — STORY CHAPTERS WITH VERTICAL YEAR TABS ===== */
+        .story-chapters {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        @media (min-width: 900px) {
+            .story-chapters { grid-template-columns: 180px 1fr; gap: 3rem; }
+        }
+        .chapter-tab-list {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        @media (min-width: 900px) {
+            .chapter-tab-list {
+                flex-direction: column;
+                overflow-x: visible;
+                padding-bottom: 0;
+                position: sticky;
+                top: 6rem;
+                height: fit-content;
+            }
+        }
+        .chapter-tab-list::-webkit-scrollbar { height: 6px; }
+        .chapter-tab-list::-webkit-scrollbar-thumb { background: var(--accent-light); border-radius: 40px; }
+        .chapter-tab {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.9rem 1.1rem;
+            border-radius: 14px;
+            background: transparent;
+            border: 1.5px solid transparent;
+            color: var(--text-main);
+            font-family: var(--heading-font);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .chapter-tab i { color: var(--accent); font-size: 0.9rem; }
+        .chapter-tab:hover { background: var(--accent-soft); color: var(--accent); }
+        .chapter-tab.active {
+            background: var(--accent);
+            color: #FFFFFF;
+            border-color: var(--accent);
+            box-shadow: 0 8px 20px rgba(255,123,84,0.25);
+        }
+        .chapter-tab.active i { color: #FFFFFF; }
+
+        .chapter-panel { display: none; }
+        .chapter-panel.active { display: block; animation: fadeInUp 0.4s ease; }
+
+        .chapter-panel-inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .chapter-panel-inner { grid-template-columns: 1.1fr 1fr; }
+        }
+        .chapter-img {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 1.8rem;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(255,123,84,0.15);
+        }
+        .chapter-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .chapter-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%);
+        }
+        .chapter-tag {
+            position: absolute;
+            top: 1.2rem;
+            left: 1.2rem;
+            background: var(--accent);
+            color: #FFFFFF;
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        .chapter-body h3 {
+            font-size: 1.9rem;
+            margin: 0 0 0.8rem;
+        }
+        .chapter-body p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 0 0 1rem;
+        }
+        .chapter-body .chapter-quote {
+            padding: 1.2rem 1.4rem;
+            background: var(--accent-soft);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            color: var(--text-main);
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.75;
+            margin-top: 1rem;
+        }
+        [dir="rtl"] .chapter-body .chapter-quote {
+            border-left: none;
+            border-right: 4px solid var(--accent);
+            border-radius: 12px 0 0 12px;
+        }
+
+        /* ===== SECTION 2 — BEHIND THE SCENES COLLAGE ===== */
+        .collage {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 130px);
+            gap: 1rem;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        .collage-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1.5px solid var(--border-dim);
+            transition: 0.3s;
+        }
+        .collage-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .collage-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(255,123,84,0.15);
+        }
+        .collage-item:hover img { transform: scale(1.08); }
+        .collage-item::after {
+            content: attr(data-caption);
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            color: #FFFFFF;
+            padding: 1.5rem 1rem 0.7rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .collage-item:hover::after { opacity: 1; }
+        .collage-a { grid-column: span 2; grid-row: span 2; }
+        .collage-b { grid-column: span 2; grid-row: span 1; }
+        .collage-c { grid-column: span 1; grid-row: span 1; }
+        .collage-d { grid-column: span 1; grid-row: span 1; }
+        .collage-e { grid-column: span 2; grid-row: span 1; }
+        .collage-f { grid-column: span 2; grid-row: span 1; }
+        @media (max-width: 900px) {
+            .collage {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 150px);
+            }
+            .collage-a { grid-column: span 2; grid-row: span 2; }
+            .collage-b, .collage-e, .collage-f { grid-column: span 2; }
+        }
+        @media (max-width: 480px) {
+            .collage { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .collage > * { grid-column: span 1 !important; grid-row: span 1 !important; height: 180px; }
+        }
+
+        /* ===== SECTION 3 — FOUNDER LETTER ===== */
+        .letter-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 2px solid var(--accent);
+            border-radius: 2rem;
+            padding: 3rem 3rem 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(255,123,84,0.12);
+        }
+        .letter-quote-icon {
+            position: absolute;
+            top: -22px;
+            left: 3rem;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #FFFFFF;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(255,123,84,0.3);
+        }
+        [dir="rtl"] .letter-quote-icon { left: auto; right: 3rem; }
+        .letter-head {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-dim);
+        }
+        .letter-avatar {
+            width: 68px; height: 68px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+            flex-shrink: 0;
+        }
+        .letter-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .letter-name {
+            font-family: var(--heading-font);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin: 0;
+        }
+        .letter-role {
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 0.15rem 0 0;
+        }
+        .letter-body p {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin: 0 0 1.1rem;
+        }
+        .letter-body p:last-child { margin-bottom: 0; }
+        .letter-signature {
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px dashed var(--border-dim);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .letter-signature-name {
+            font-family: var(--heading-font);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .letter-signature-date {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        /* ===== SECTION 4 — VALUES THAT SHAPED US ===== */
+        .values-shape {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            max-width: 1150px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+        .value-shape {
+            position: relative;
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-dim);
+            border-radius: 22px;
+            padding: 2.5rem 1.8rem 2rem;
+            transition: 0.3s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .value-shape::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--accent);
+            transform: scaleX(0.15);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+        .value-shape:hover::before { transform: scaleX(1); }
+        .value-shape:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 16px 32px rgba(255,123,84,0.1);
+        }
+        .value-shape-number {
+            font-family: var(--heading-font);
+            font-size: 3.6rem;
+            font-weight: 800;
+            color: var(--accent-light);
+            line-height: 1;
+            margin-bottom: 0.8rem;
+            height: 3.6rem;
+            display: flex;
+            align-items: flex-end;
+        }
+        .value-shape h4 {
+            font-size: 1.2rem;
+            line-height: 1.35;
+            margin: 0 0 0.75rem;
+            min-height: 3.3rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .value-shape p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.75;
+            flex: 1;
+        }
+        @media (max-width: 600px) {
+            .values-shape {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .value-shape h4 {
+                min-height: auto;
+            }
+        }
+
+        /* ===== SECTION 5 — PRESS & AWARDS ===== */
+        .press-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            max-width: 1150px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+        .press-item {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-dim);
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+        .press-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 16px 32px rgba(255,123,84,0.1);
+        }
+        .press-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border: 1.5px solid var(--accent);
+            flex-shrink: 0;
+        }
+        .press-source {
+            font-family: var(--heading-font);
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin: 0 0 0.5rem;
+            min-height: 2.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .press-quote {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            font-style: italic;
+            line-height: 1.7;
+            margin: 0 0 1.2rem;
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .press-year {
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: auto;
+            padding-top: 0.6rem;
+        }
+        @media (max-width: 600px) {
+            .press-strip {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .press-source {
+                min-height: auto;
+            }
+            .press-quote {
+                min-height: auto;
+            }
+        }
+
+        /* ===== SECTION 6 — FINAL CTA ===== */
+        .final-cta-wrap {
+            padding: 6rem 0 5rem;
+            background: var(--bg-primary);
+            position: relative;
+        }
+        .cta-band {
+            background: var(--footer-bg);
+            border-radius: 2.5rem;
+            padding: 4.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            margin-bottom: 3.5rem;
+        }
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 50%, var(--accent) 100%);
+            z-index: 3;
+        }
+        .cta-band::after {
+            content: '';
+            position: absolute;
+            width: 320px; height: 320px;
+            background: var(--accent); opacity: 0.18;
+            border-radius: 50%; filter: blur(70px);
+            top: -110px; left: -110px;
+            pointer-events: none;
+        }
+        .cta-band-glow-2 {
+            position: absolute;
+            width: 280px; height: 280px;
+            background: var(--accent); opacity: 0.14;
+            border-radius: 50%; filter: blur(70px);
+            bottom: -90px; right: -90px;
+            pointer-events: none;
+        }
+        .cta-band-inner { position: relative; z-index: 2; }
+        .cta-band h2 {
+            color: #FFF9F5;
+            font-size: 2.8rem;
+            margin: 0 0 1rem;
+        }
+        .cta-band p {
+            color: #CBB9AB;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .cta-band-actions {
+            display: flex; gap: 1rem;
+            justify-content: center; flex-wrap: wrap;
+        }
+        .cta-divider {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1.5rem; max-width: 900px; margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .cta-divider-line {
+            flex: 1; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        .cta-divider-dots {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+        }
+        .cta-divider-dots i {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--accent); opacity: 0.5; display: inline-block;
+        }
+        .cta-divider-dots i:nth-child(3) {
+            width: 12px; height: 12px; opacity: 1;
+            box-shadow: 0 0 0 4px var(--accent-light);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--accent); color: #FFFFFF; padding: 0.9rem 2rem;
+            border-radius: 9999px; font-weight: 700; display: inline-flex;
+            align-items: center; gap: 0.6rem; text-decoration: none; transition: 0.2s;
+            box-shadow: 0 8px 20px rgba(255,123,84,0.3);
+            border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background-color: var(--accent-dark); transform: translateY(-3px); color: #FFFFFF; }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent); color: var(--accent); padding: 0.9rem 2rem;
+            border-radius: 9999px; font-weight: 700; display: inline-flex;
+            align-items: center; gap: 0.6rem; text-decoration: none; transition: 0.2s;
+        }
+        .btn-outline:hover { background: var(--accent); color: #FFFFFF; transform: translateY(-3px); }
+        .btn-light-outline {
+            background: transparent;
+            border: 2px solid #FFF9F5; color: #FFF9F5;
+            padding: 0.9rem 2rem; border-radius: 9999px;
+            font-weight: 700; display: inline-flex; align-items: center;
+            gap: 0.6rem; text-decoration: none; transition: 0.2s;
+        }
+        .btn-light-outline:hover { background: #FFF9F5; color: var(--footer-bg); transform: translateY(-3px); }
+
+        /* FOOTER */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+        .footer::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 4px; background: var(--accent);
+        }
+        .footer-main {
+            display: grid; gap: 3rem; grid-template-columns: 1fr;
+            margin-bottom: 3rem;
+        }
+        @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 2fr; } }
+        .footer .logo .logo-text { color: #FFF9F5; }
+        .footer .logo .logo-text span { color: var(--accent); }
+        .footer .logo .logo-tagline { color: #B8A89C; }
+        .footer-tagline { color: var(--footer-text); font-size: 0.875rem; max-width: 300px; margin-top: 1rem; }
+        .footer-social { display: flex; gap: 1rem; margin-top: 1.2rem; }
+        .footer-social-link {
+            width: 2.5rem; height: 2.5rem; background-color: var(--accent-light);
+            border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+            color: var(--accent); transition: 0.2s; text-decoration: none;
+            border: 1.5px solid var(--accent);
+        }
+        .footer-social-link:hover { background-color: var(--accent); color: #FFFFFF; transform: translateY(-3px); }
+        .footer-heading { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--accent); font-family: var(--heading-font); }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: var(--footer-text); transition: 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .footer-links a:hover { color: var(--accent); transform: translateX(5px); }
+        .footer-input { width: 100%; padding: 0.875rem; border-radius: 9999px; background: rgba(255,255,255,0.06); border: 1.5px solid var(--accent); color: #FFF9F5; font-size: 0.95rem; }
+        .footer-input::placeholder { color: var(--footer-text); }
+        .footer-input:focus { outline: none; border-color: var(--accent); }
+        .footer-btn { width: 100%; background-color: var(--accent); color: #FFFFFF; padding: 0.875rem; border-radius: 9999px; font-weight: 700; border: none; cursor: pointer; margin-top: 0.5rem; transition: 0.2s; font-size: 1rem; }
+        .footer-btn:hover { background-color: var(--accent-dark); transform: translateY(-2px); color: #FFFFFF; }
+        .footer-bottom { border-top: 1px solid rgba(255,123,84,0.25); padding-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+        @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
+        .copyright { color: var(--footer-text); font-size: 0.875rem; }
+        .footer-bottom-links { display: flex; gap: 2rem; }
+        .footer-bottom-links a { color: var(--footer-text); font-size: 0.875rem; text-decoration: none; }
+        .footer-bottom-links a:hover { color: var(--accent); }
+        #scroll-top {
+            position: fixed; bottom: 1.5rem; right: 1.5rem; width: 3rem; height: 3rem;
+            background-color: var(--accent); color: #FFFFFF; border-radius: 50%;
+            border: none; cursor: pointer; z-index: 100; display: none;
+            font-size: 1.1rem; box-shadow: 0 6px 18px rgba(255,123,84,0.4);
+        }
+        #scroll-top:hover { background-color: var(--accent-dark); transform: translateY(-3px); color: #FFFFFF; }
+
+        /* Small screen tweaks */
+        @media (max-width: 480px) {
+            .section-title { font-size: 2rem !important; }
+            .hero-title { font-size: 2rem !important; }
+            .cta-band h2 { font-size: 2rem !important; }
+            .cta-band { padding: 3.5rem 1.5rem; border-radius: 2rem; margin-bottom: 2.5rem; }
+            .cta-band-actions { flex-direction: column; align-items: stretch; }
+            .cta-band-actions a { justify-content: center; width: 100%; }
+            .cta-divider { gap: 1rem; }
+            .final-cta-wrap { padding: 4rem 0 4rem; }
+            .letter-wrap { padding: 2rem 1.5rem 1.8rem; }
+            .letter-quote-icon { left: 1.5rem; width: 42px; height: 42px; font-size: 1rem; }
+            [dir="rtl"] .letter-quote-icon { right: 1.5rem; left: auto; }
+            .letter-head { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+            .chapter-body h3 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar-container">
+    <div class="navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-fish"></i></div>
+            <div class="logo-text-wrapper">
+                <div class="logo-text">POKE<span> BOWL</span></div>
+                <span class="logo-tagline">fresh • fusion • vibrant</span>
+            </div>
+        </a>
+
+        <div class="desktop-nav">
+            <div class="dropdown">
+                <div class="nav-link">Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i></div>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item">HOME 1</a>
+                    <a href="home2.html" class="dropdown-item">HOME 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="build-bowl.html" class="nav-link">Build Your Bowl</a>
+            <a href="menu.html" class="nav-link">Our Menu</a>
+            <a href="flavor-passport.html" class="nav-link">Flavor Passport</a>
+            <a href="fresh-picks.html" class="nav-link">Fresh Picks</a>
+            <a href="nutrition.html" class="nav-link">Nutrition Guide</a>
+            <a href="our-story.html" class="nav-link active">Our Story</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle"><i class="fas fa-sun"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle"><i class="fas fa-exchange-alt"></i></button>
+            <a href="contact.html" class="enquiry-btn"><i class="fas fa-envelope"></i> Enquiry</a>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-fish"></i></div>
+            <div class="logo-text-wrapper">
+                <div class="logo-text">POKE<span> BOWL</span></div>
+            </div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-dropdown')">
+                Home <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-dropdown" class="mobile-dropdown-content">
+                <a href="index.html">HOME 1</a>
+                <a href="home2.html">HOME 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-nav-item">About Us</a>
+        <a href="build-bowl.html" class="mobile-nav-item">Build Your Bowl</a>
+        <a href="menu.html" class="mobile-nav-item">Our Menu</a>
+        <a href="flavor-passport.html" class="mobile-nav-item">Flavor Passport</a>
+        <a href="fresh-picks.html" class="mobile-nav-item">Fresh Picks</a>
+        <a href="nutrition.html" class="mobile-nav-item">Nutrition Guide</a>
+        <a href="our-story.html" class="mobile-nav-item active">Our Story</a>
+        <a href="contact.html" class="mobile-nav-item">Contact</a>
+        <div class="mobile-action-buttons">
+            <a href="contact.html" class="mobile-enquiry-btn"><i class="fas fa-envelope"></i> Send Enquiry</a>
+            <button class="mobile-action-btn" id="mobile-rtl-toggle"><i class="fas fa-exchange-alt"></i> RTL Mode</button>
+            <button class="mobile-action-btn" id="mobile-theme-toggle"><i class="fas fa-circle-half-stroke"></i> Dark/Light Mode</button>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero-page">
+    <div class="container hero-page-grid">
+        <div class="hero-content-left">
+            <div class="hero-sub">OUR STORY · 2022 → TODAY</div>
+            <h1 class="hero-title">It started with <span>a folding table.</span></h1>
+            <p class="hero-description">No investors, no grand plan — just a small team, a farmers market stall, and one belief: fresh food should taste like something. Here's how it grew.</p>
+        </div>
+        <div>
+            <div class="hero-image-main">
+                <img src="asserts/s1.avif" alt="Our story">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SECTION 1 — STORY CHAPTERS WITH YEAR TABS ===================== -->
+<section class="section" style="background:var(--bg-primary);">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Chapter By Chapter</span>
+            <h2 class="section-title">The Story So Far</h2>
+            <p style="color:var(--text-dim); max-width:620px; margin:0 auto; font-size:1.05rem;">Pick a year to jump to that chapter. Each one changed what we do and why we do it.</p>
+        </div>
+
+        <div class="story-chapters">
+
+            <div class="chapter-tab-list" role="tablist">
+                <button class="chapter-tab active" data-chapter="2022"><i class="fas fa-seedling"></i> 2022</button>
+                <button class="chapter-tab" data-chapter="2023"><i class="fas fa-store"></i> 2023</button>
+                <button class="chapter-tab" data-chapter="2024"><i class="fas fa-globe"></i> 2024</button>
+                <button class="chapter-tab" data-chapter="2026"><i class="fas fa-trophy"></i> 2026</button>
+            </div>
+
+            <div class="chapter-panel-list">
+
+                <div class="chapter-panel active" data-chapter-panel="2022">
+                    <div class="chapter-panel-inner">
+                        <div class="chapter-img">
+                            <span class="chapter-tag">2022</span>
+                             <img src="asserts/os4.avif" alt="First stall">
+                        </div>
+                        <div class="chapter-body">
+                            <h3>The Folding Table</h3>
+                            <p>It started with a folding table at the Saturday farmers market. Three bowls, one ice chest, and a hand-painted sign. We sold out by noon — and knew we were onto something.</p>
+                            <p>That first season taught us the most important lesson we still hold today: fresh ingredients don't need a lot of help. If you start with the best, you barely have to do anything at all.</p>
+                            <div class="chapter-quote">"We had no menu, no website, no plan. Just a bowl and a belief."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter-panel" data-chapter-panel="2023">
+                    <div class="chapter-panel-inner">
+                        <div class="chapter-img">
+                            <span class="chapter-tag">2023</span>
+                       <img src="asserts/os5.avif" alt="First storefront">
+                        </div>
+                        <div class="chapter-body">
+                            <h3>The First Storefront</h3>
+                            <p>Eighteen months in, we opened our first brick-and-mortar location — 40 seats, one open kitchen, and a chalkboard menu that changed with the seasons.</p>
+                            <p>We built it for the neighborhood. Long tables, natural light, no rush. The kind of place where you can see your bowl being made and talk to the person making it.</p>
+                            <div class="chapter-quote">"We wanted a room that felt like a kitchen, not a restaurant."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter-panel" data-chapter-panel="2024">
+                    <div class="chapter-panel-inner">
+                        <div class="chapter-img">
+                            <span class="chapter-tag">2024</span>
+                            <img src="asserts/os31.jpg"alt="Flavor passport launch">
+                        </div>
+                        <div class="chapter-body">
+                            <h3>The Flavor Passport</h3>
+                            <p>We launched our globally-inspired menu — six regions, twelve signature sauces, one philosophy: every bowl should feel like a place.</p>
+                            <p>Hawaii taught us restraint. Japan taught us precision. Korea taught us heat. The Mediterranean taught us freshness. Each region added something to our kitchen.</p>
+                            <div class="chapter-quote">"Every sauce has a story. Every bowl is a passport stamp."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter-panel" data-chapter-panel="2026">
+                    <div class="chapter-panel-inner">
+                        <div class="chapter-img">
+                            <span class="chapter-tag">2026</span>
+                              <img src="asserts/os1.avif"alt="50k milestone">
+                        </div>
+                        <div class="chapter-body">
+                            <h3>Fifty Thousand Bowls</h3>
+                            <p>We crossed 50,000 bowls served — and we still count every one. No investor money, no shortcuts, no compromises on what goes in the bowl.</p>
+                            <p>Today, we're a small team serving a neighborhood we love. The folding table is in the back room. We haven't forgotten where we started.</p>
+                            <div class="chapter-quote">"Every bowl is a chance to earn the next one."</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SECTION 2 — BEHIND THE SCENES COLLAGE ===================== -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Behind The Scenes</span>
+            <h2 class="section-title">A Day In The Kitchen</h2>
+            <p style="color:var(--text-dim); max-width:620px; margin:0 auto; font-size:1.05rem;">From the morning delivery to the last bowl served at close — a visual diary of what a day here actually looks like.</p>
+        </div>
+
+        <div class="collage">
+
+            <div class="collage-item collage-a" data-caption="Morning Delivery">
+                  <img src="asserts/os6.avif" alt="Morning delivery">
+            </div>
+            <div class="collage-item collage-b" data-caption="Prep Station">
+                <img src="asserts/os7.avif" alt="Prep station">
+            </div>
+            <div class="collage-item collage-c" data-caption="Sauce Batch">
+                <img src="asserts/os8.avif" alt="Sauce batch">
+            </div>
+            <div class="collage-item collage-d" data-caption="Fresh Catch">
+                <img src="asserts/os9.avif" alt="Fresh catch">
+            </div>
+            <div class="collage-item collage-e" data-caption="Service Begins">
+                <img src="asserts/os10.avif" alt="Service begins">
+            </div>
+            <div class="collage-item collage-f" data-caption="Closing Time">
+                <img src="asserts/os11.avif" alt="Closing time">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SECTION 3 — FOUNDER'S LETTER ===================== -->
+<section class="section" style="background:var(--bg-primary);">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">A Letter From Our Founder</span>
+            <h2 class="section-title">Why We Do This</h2>
+        </div>
+
+        <div class="letter-wrap">
+            <div class="letter-quote-icon"><i class="fas fa-quote-left"></i></div>
+
+            <div class="letter-head">
+                <div class="letter-avatar">
+                    <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=200&q=80" alt="Maya Tanaka">
+                </div>
+                <div>
+                    <p class="letter-name">Maya Tanaka</p>
+                    <p class="letter-role">Founder & Executive Chef</p>
+                </div>
+            </div>
+
+            <div class="letter-body">
+                <p>When I moved to this city, I couldn't find the food I grew up eating. Not the version that was supposed to be "authentic" — the version that was made by people who cared what the bowl tasted like. So I started making it myself.</p>
+                <p>What I learned in those early farmers market mornings is that fresh food isn't expensive to make. It's expensive to fake. Real ingredients, handled with care and served with intention, do more than a hundred shortcuts ever could.</p>
+                <p>Every bowl that leaves our kitchen carries that same idea. It's why we don't pre-make anything. It's why we cut the fish the morning it arrives. It's why we cook the rice fresh every single day — even when it would be easier not to.</p>
+                <p>We're not the biggest. We're not the loudest. But if you come in and try a bowl, you'll taste the difference within the first bite. That's the only promise we can make — and the only one we need to keep.</p>
+            </div>
+
+            <div class="letter-signature">
+                <div class="letter-signature-name">Maya</div>
+                <div class="letter-signature-date">Signed · 2026</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SECTION 4 — VALUES THAT SHAPED US ===================== -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Values That Shaped Us</span>
+            <h2 class="section-title">Four Things We Never Compromise On</h2>
+            <p style="color:var(--text-dim); max-width:620px; margin:0 auto; font-size:1.05rem;">Our menu changes, our team grows, but these four things stay the same — no matter what.</p>
+        </div>
+
+        <div class="values-shape">
+
+            <div class="value-shape">
+                <div class="value-shape-number">01</div>
+                <h4>Fresh, Always</h4>
+                <p>If it isn't fresh, it isn't in the bowl. We buy small, cook often, and never hold anything overnight that shouldn't be held overnight.</p>
+            </div>
+
+            <div class="value-shape">
+                <div class="value-shape-number">02</div>
+                <h4>Small Batch, Small Team</h4>
+                <p>We stay small on purpose. Fewer seats, tighter standards, and the same people making your bowl every time you walk in.</p>
+            </div>
+
+            <div class="value-shape">
+                <div class="value-shape-number">03</div>
+                <h4>Honest Sourcing</h4>
+                <p>We name our farms and fisheries because we're proud of them. If we can't say where it came from, we won't serve it.</p>
+            </div>
+
+            <div class="value-shape">
+                <div class="value-shape-number">04</div>
+                <h4>Flavor Without Tricks</h4>
+                <p>Real ingredients, real technique. No fillers, no artificial flavors, no shortcuts. Just food that tastes like itself.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SECTION 5 — PRESS & AWARDS ===================== -->
+<section class="section" style="background:var(--bg-primary);">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Press & Recognition</span>
+            <h2 class="section-title">What Others Have Said</h2>
+            <p style="color:var(--text-dim); max-width:620px; margin:0 auto; font-size:1.05rem;">A few kind words from the publications and people who've visited over the years.</p>
+        </div>
+
+        <div class="press-strip">
+
+            <div class="press-item">
+                <div class="press-badge"><i class="fas fa-newspaper"></i></div>
+                <p class="press-source">The City Table</p>
+                <p class="press-quote">"The freshest bowl in the neighborhood — and the only one that tastes like it was made by someone who actually cares."</p>
+                <div class="press-year">Best New Spot · 2024</div>
+            </div>
+
+            <div class="press-item">
+                <div class="press-badge"><i class="fas fa-award"></i></div>
+                <p class="press-source">Local Food Awards</p>
+                <p class="press-quote">"A masterclass in restraint. Nothing on the menu is unnecessary — every ingredient earns its place."</p>
+                <div class="press-year">Editor's Choice · 2025</div>
+            </div>
+
+            <div class="press-item">
+                <div class="press-badge"><i class="fas fa-star"></i></div>
+                <p class="press-source">Food Weekly</p>
+                <p class="press-quote">"Poke, reimagined. The flavor passport concept is bold, thoughtful, and executed with real skill."</p>
+                <div class="press-year">Top 10 Bowls · 2026</div>
+            </div>
+
+            <div class="press-item">
+                <div class="press-badge"><i class="fas fa-heart"></i></div>
+                <p class="press-source">Neighborhood Voice</p>
+                <p class="press-quote">"A small kitchen with a big heart. It's the kind of place you tell your friends about."</p>
+                <div class="press-year">Reader's Pick · 2026</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SECTION 6 — FINAL CTA ===================== -->
+<section class="final-cta-wrap">
+    <div class="container">
+        <div class="cta-band">
+            <div class="cta-band-glow-2" aria-hidden="true"></div>
+            <div class="cta-band-inner">
+                <h2>Come be part of it.</h2>
+                <p>The story isn't finished — every new bowl adds a page. Come in, try something fresh, and see what we mean.</p>
+                <div class="cta-band-actions">
+                    <a href="menu.html" class="btn-primary"><i class="fas fa-utensils"></i> See Our Menu</a>
+                    <a href="contact.html" class="btn-light-outline">Visit Us <i class="fas fa-map-marker-alt"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-divider" aria-hidden="true">
+            <span class="cta-divider-line"></span>
+            <span class="cta-divider-dots">
+                <i></i><i></i><i></i><i></i><i></i>
+            </span>
+            <span class="cta-divider-line"></span>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="display:flex; gap:10px;">
+                    <div class="logo-icon"><i class="fas fa-fish"></i></div>
+                    <div class="logo-text-wrapper">
+                        <div class="logo-text">POKE<span> BOWL</span></div>
+                        <span class="logo-tagline">fresh • fusion • vibrant</span>
+                    </div>
+                </a>
+                <p class="footer-tagline">Open 7 days • 11am–9pm. Fresh fusion poke bowls in the heart of the city. Dine in, takeout, or delivery.</p>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="build-bowl.html"><i class="fas fa-chevron-right"></i> Build Your Bowl</a></li>
+                    <li><a href="menu.html"><i class="fas fa-chevron-right"></i> Our Menu</a></li>
+                    <li><a href="flavor-passport.html"><i class="fas fa-chevron-right"></i> Flavor Passport</a></li>
+                    <li><a href="fresh-picks.html"><i class="fas fa-chevron-right"></i> Fresh Picks</a></li>
+                    <li><a href="nutrition.html"><i class="fas fa-chevron-right"></i> Nutrition Guide</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="our-story.html"><i class="fas fa-chevron-right"></i> Our Story</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Stay Fresh</h3>
+                <p>Subscribe for new bowl drops, seasonal specials & exclusive offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="footer-input">
+                    <button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+                <p style="font-size:0.75rem; color:var(--footer-text); margin-top:0.8rem;">We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Poke Bowl & Fresh Fusion – All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<button id="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    function toggleMobileDropdown(id) {
+        const element = document.getElementById(id);
+        if (element) { element.classList.toggle('active'); }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Chapter tabs
+        document.querySelectorAll('.chapter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const key = this.dataset.chapter;
+                document.querySelectorAll('.chapter-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.chapter-panel').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                const panel = document.querySelector('.chapter-panel[data-chapter-panel="' + key + '"]');
+                if (panel) panel.classList.add('active');
+            });
+        });
+    });
+
+    (function() {
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('desktop-theme-toggle');
+        const mobileTheme = document.getElementById('mobile-theme-toggle');
+        let theme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', theme);
+
+        function updateThemeIcons(t) {
+            const icon = document.querySelector('#desktop-theme-toggle i');
+            if (icon) icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        updateThemeIcons(theme);
+
+        function toggleThemeFunc() {
+            let cur = html.getAttribute('data-theme');
+            let nw = cur === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', nw);
+            localStorage.setItem('theme', nw);
+            updateThemeIcons(nw);
+        }
+        if (themeToggle) themeToggle.addEventListener('click', toggleThemeFunc);
+        if (mobileTheme) mobileTheme.addEventListener('click', toggleThemeFunc);
+
+        function toggleRtl() {
+            let dir = html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            html.setAttribute('dir', dir);
+            localStorage.setItem('direction', dir);
+        }
+        document.getElementById('desktop-rtl-toggle')?.addEventListener('click', toggleRtl);
+        document.getElementById('mobile-rtl-toggle')?.addEventListener('click', toggleRtl);
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        if (menuBtn) menuBtn.onclick = () => mobileMenu.classList.add('active');
+        if (closeBtn) closeBtn.onclick = () => mobileMenu.classList.remove('active');
+        mobileMenu?.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
+
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none');
+        scrollBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+</script>
+</body>
+</html>
