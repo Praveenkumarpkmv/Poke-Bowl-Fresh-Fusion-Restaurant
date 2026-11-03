@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="About Poke Bowl & Fresh Fusion – our story, our values, and our promise to serve fresh, honest food every day.">
     <title>About Us | Poke Bowl & Fresh Fusion</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF7B54'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23FF7B54'/%3E%3Cpath d='M7 12h10M12 7v10' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FF8F6B%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23E24F1F%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22url%28%23bg%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M24%205L10%2019%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3Cpath%20d%3D%22M27%207L13%2021%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.8%22/%3E%0A%20%20%3Cpath%20d%3D%22M11%2011C13%208%2018%208%2022%2011C19%2012%2017%2012%2015%2014C13%2015%2011%2013%2011%2011Z%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cellipse%20cx%3D%2216%22%20cy%3D%2217%22%20rx%3D%2211%22%20ry%3D%221.4%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cpath%20d%3D%22M6%2017.5C6.5%2023.5%2010.5%2027%2016%2027C21.5%2027%2025.5%2023.5%2026%2017.5Z%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cpath%20d%3D%22M12%2028H20%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.4%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3Ccircle%20cx%3D%229.5%22%20cy%3D%2211.5%22%20r%3D%221.3%22%20fill%3D%22%237AE582%22/%3E%0A%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -84,52 +84,103 @@
         [dir="rtl"] .footer-links a:hover { transform: translateX(-5px); }
         [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
 
-        /* LOGO */
+                /* ===== REFINED ARTISANAL LOGO ===== */
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 0.75rem;
             text-decoration: none;
             flex-shrink: 0;
             line-height: 1;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .logo:hover { transform: scale(1.02); }
+        .logo:hover {
+            transform: translateY(-1px) scale(1.02);
+        }
         .logo-icon {
             width: 3rem;
             height: 3rem;
-            background: var(--accent);
-            border-radius: 0.9rem;
+            background: linear-gradient(135deg, #FF8F6B 0%, var(--accent) 52%, #E24F1F 100%);
+            border-radius: 0.95rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #FFFFFF;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(255,123,84,0.35);
+            box-shadow: 0 6px 18px rgba(255,123,84,0.38), inset 0 1px 1.5px rgba(255,255,255,0.45);
+            border: 1.5px solid rgba(255,255,255,0.22);
             flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .logo-icon::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 60%);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        .logo:hover .logo-icon {
+            transform: rotate(-3deg) scale(1.06);
+            box-shadow: 0 10px 24px rgba(255,123,84,0.52), inset 0 1.5px 2px rgba(255,255,255,0.6);
+        }
+        .logo-icon .logo-mark {
+            width: 82%;
+            height: 82%;
+            display: block;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+        }
+        .logo:hover .logo-icon .logo-mark {
+            transform: scale(1.04);
         }
         .logo-text-wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            line-height: 1.15;
+            line-height: 1.1;
         }
         .logo-text {
             white-space: nowrap;
-            font-size: 1.4rem;
+            font-size: 1.38rem;
             font-weight: 800;
             color: var(--text-heading);
             font-family: var(--heading-font);
             letter-spacing: -0.02em;
+            display: flex;
+            align-items: baseline;
+            gap: 0.15rem;
         }
-        .logo-text span { color: var(--accent); }
+        .logo-text span {
+            color: var(--accent);
+            position: relative;
+        }
         .logo-tagline {
-            font-size: 0.6rem;
+            font-size: 0.62rem;
             color: var(--text-dim);
-            font-weight: 600;
-            letter-spacing: 0.1em;
+            font-weight: 700;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            margin-top: 0.1rem;
+            margin-top: 0.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
         }
+        .logo-tagline .tagline-fusion {
+            color: var(--accent);
+            font-weight: 800;
+            letter-spacing: 0.14em;
+        }
+        .logo-tagline .tagline-dot {
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.7;
+        }
+        [dir="rtl"] .logo-text-wrapper { text-align: right; }
 
         /* NAVBAR */
         .navbar-container {
@@ -536,6 +587,92 @@
         .section-badge { color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; font-size: 0.75rem; display: block; margin-bottom: 0.5rem; }
         .section-title { font-size: 2.8rem; margin-bottom: 1rem; color: var(--text-heading); }
 
+        /* ===== OUR VALUES SECTION ===== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        .value-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1.5px solid var(--border-dim);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+        }
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(255,123,84,0.16);
+            border-color: var(--accent);
+        }
+        .value-card-header {
+            background: linear-gradient(135deg, #FF8F6B 0%, var(--accent) 55%, #E24F1F 100%);
+            padding: 1.5rem 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-height: 106px;
+            box-sizing: border-box;
+        }
+        .value-icon-box {
+            width: 52px;
+            height: 52px;
+            background: rgba(255,255,255,0.22);
+            border: 1.5px solid rgba(255,255,255,0.35);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .value-card:hover .value-icon-box {
+            transform: scale(1.08) rotate(-4deg);
+        }
+        .value-header-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .value-tag {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+        }
+        .value-title {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            font-family: var(--heading-font);
+            line-height: 1.25;
+        }
+        .value-card-body {
+            padding: 1.8rem 1.6rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .value-desc {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.75;
+        }
+        [dir="rtl"] .value-card-header { text-align: right; }
+        [dir="rtl"] .value-card-body { text-align: right; }
+
         /* ===== TEAM SECTION ===== */
         .team-grid {
             display: grid;
@@ -549,7 +686,7 @@
             border-radius: 24px;
             overflow: hidden;
             border: 1.5px solid var(--border-dim);
-            transition: 0.3s;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -562,20 +699,18 @@
         }
         .team-img-wrap {
             width: 100%;
-            height: 320px;
-            background-color: transparent;
+            height: 290px;
+            background-color: var(--card-bg);
             overflow: hidden;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             flex-shrink: 0;
         }
         .team-img-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Contain shows full image without cropping */
-            transition: transform 0.5s ease;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .team-card:hover .team-img-wrap img { transform: scale(1.06); }
         .team-info {
@@ -780,6 +915,8 @@
         .footer .logo .logo-text { color: #FFF9F5; }
         .footer .logo .logo-text span { color: var(--accent); }
         .footer .logo .logo-tagline { color: #B8A89C; }
+        .footer .logo .logo-tagline .tagline-fusion { color: var(--accent); }
+        .footer .logo .logo-icon { background: linear-gradient(135deg, #FF8F6B 0%, var(--accent) 52%, #E24F1F 100%); }
         .footer .logo .logo-icon { background: var(--accent); }
         .footer-tagline { color: var(--footer-text); font-size: 0.875rem; max-width: 300px; margin-top: 1rem; }
         .footer-social { display: flex; gap: 1rem; margin-top: 1.2rem; }
@@ -849,10 +986,36 @@
 <nav class="navbar-container">
     <div class="navbar-flex">
         <a href="index.html" class="logo">
-            <div class="logo-icon"><i class="fas fa-fish"></i></div>
+            <div class="logo-icon">
+                <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoFishGrad_about_nav" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFE2D6" />
+                        </linearGradient>
+                        <linearGradient id="logoBowlGrad_about_nav" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFF0E6" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M36 7L15 28" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity="0.95"/>
+                    <path d="M40 10L19 30" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/>
+                    <path d="M13 18C11.5 14 14 12 16 14C17 17 14 19 13 18Z" fill="#7AE582"/>
+                    <path d="M14 16.5C15 15.5 16 15.5 16.5 16" stroke="#48B460" stroke-width="0.6" stroke-linecap="round"/>
+                    <path d="M16.5 16C19.5 11.5 27 11.5 32.5 16C28 17.5 25 17 22 20C19 21 16.5 19 16.5 16Z" fill="url(#logoFishGrad_about_nav)"/>
+                    <path d="M32.5 16L36.5 13.5C35.5 16 35.5 17 36.5 19.5Z" fill="url(#logoFishGrad_about_nav)"/>
+                    <circle cx="19.5" cy="16.5" r="0.9" fill="#FF6536"/>
+                    <circle cx="21" cy="22" r="0.75" fill="#FFE8DF"/>
+                    <circle cx="26" cy="21" r="0.7" fill="#FFE8DF"/>
+                    <ellipse cx="24" cy="25.5" rx="16.5" ry="2" fill="url(#logoBowlGrad_about_nav)"/>
+                    <path d="M8.5 26C9.5 35 15.5 40.5 24 40.5C32.5 40.5 38.5 35 39.5 26Z" fill="url(#logoBowlGrad_about_nav)"/>
+                    <path d="M18.5 41.5H29.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+                    <path d="M13.5 31.5C18 35.5 30 35.5 34.5 31.5" stroke="#FF7B54" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.8"/>
+                </svg>
+            </div>
             <div class="logo-text-wrapper">
                 <div class="logo-text">POKE<span> BOWL</span></div>
-                <span class="logo-tagline">fresh • fusion • vibrant</span>
+                <span class="logo-tagline"><span class="tagline-fusion">FRESH FUSION</span><span class="tagline-dot"></span><span>VIBRANT</span></span>
             </div>
         </a>
 
@@ -888,9 +1051,36 @@
 <div id="mobile-menu" class="mobile-menu">
     <div class="mobile-menu-header">
         <a href="index.html" class="logo">
-            <div class="logo-icon"><i class="fas fa-fish"></i></div>
+            <div class="logo-icon">
+                <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoFishGrad_about_mob" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFE2D6" />
+                        </linearGradient>
+                        <linearGradient id="logoBowlGrad_about_mob" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFF0E6" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M36 7L15 28" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity="0.95"/>
+                    <path d="M40 10L19 30" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/>
+                    <path d="M13 18C11.5 14 14 12 16 14C17 17 14 19 13 18Z" fill="#7AE582"/>
+                    <path d="M14 16.5C15 15.5 16 15.5 16.5 16" stroke="#48B460" stroke-width="0.6" stroke-linecap="round"/>
+                    <path d="M16.5 16C19.5 11.5 27 11.5 32.5 16C28 17.5 25 17 22 20C19 21 16.5 19 16.5 16Z" fill="url(#logoFishGrad_about_mob)"/>
+                    <path d="M32.5 16L36.5 13.5C35.5 16 35.5 17 36.5 19.5Z" fill="url(#logoFishGrad_about_mob)"/>
+                    <circle cx="19.5" cy="16.5" r="0.9" fill="#FF6536"/>
+                    <circle cx="21" cy="22" r="0.75" fill="#FFE8DF"/>
+                    <circle cx="26" cy="21" r="0.7" fill="#FFE8DF"/>
+                    <ellipse cx="24" cy="25.5" rx="16.5" ry="2" fill="url(#logoBowlGrad_about_mob)"/>
+                    <path d="M8.5 26C9.5 35 15.5 40.5 24 40.5C32.5 40.5 38.5 35 39.5 26Z" fill="url(#logoBowlGrad_about_mob)"/>
+                    <path d="M18.5 41.5H29.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+                    <path d="M13.5 31.5C18 35.5 30 35.5 34.5 31.5" stroke="#FF7B54" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.8"/>
+                </svg>
+            </div>
             <div class="logo-text-wrapper">
                 <div class="logo-text">POKE<span> BOWL</span></div>
+                <span class="logo-tagline"><span class="tagline-fusion">FRESH FUSION</span></span>
             </div>
         </a>
         <button class="mobile-menu-close" id="close-mobile-menu"><i class="fas fa-times"></i></button>
@@ -946,64 +1136,69 @@
             <p style="color:var(--text-dim); max-width:640px; margin:0 auto; font-size:1.05rem; line-height:1.7;">More than a restaurant — we're a promise. Every bowl we serve is built on four values that guide every decision we make.</p>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:2rem; max-width:1150px; margin:0 auto;">
+        <div class="values-grid">
 
             <!-- VALUE 1 -->
-            <div style="background:var(--card-bg); border-radius:28px; overflow:hidden; border:1.5px solid var(--border-dim); transition:0.3s; display:flex; flex-direction:column;"
-                 onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 40px rgba(255,123,84,0.15)'"
-                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <div style="background:var(--accent); padding:1.5rem 2rem; display:flex; align-items:center; gap:1rem;">
-                    <div style="width:56px; height:56px; background:rgba(255,255,255,0.2); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <i class="fas fa-seedling" style="font-size:1.6rem; color:#FFFFFF;"></i>
+            <div class="value-card">
+                <div class="value-card-header">
+                    <div class="value-icon-box">
+                        <i class="fas fa-seedling"></i>
                     </div>
-                    <div>
-                        <div style="font-size:0.7rem; color:rgba(255,255,255,0.85); font-weight:700; letter-spacing:1.5px; text-transform:uppercase;">Value 01</div>
-                        <h3 style="margin:0; font-size:1.25rem; font-weight:800; color:#FFFFFF;">Fresh, Never Frozen</h3>
+                    <div class="value-header-text">
+                        <span class="value-tag">Value 01</span>
+                        <h3 class="value-title">Fresh, Never Frozen</h3>
                     </div>
                 </div>
-                <div style="padding:2rem;">
-                    <p style="color:var(--text-dim); font-size:0.95rem; margin:0; line-height:1.75;">Every ingredient is delivered daily from local farms and fisheries. If it's not fresh, it's not on our menu.</p>
+                <div class="value-card-body">
+                    <p class="value-desc">Every ingredient is delivered daily from local farms and fisheries. If it's not fresh, it's not on our menu.</p>
                 </div>
             </div>
 
             <!-- VALUE 2 -->
-            <div style="background:var(--accent-soft); border-radius:28px; padding:3rem 2rem; border:2px dashed var(--accent); text-align:center; transition:0.3s;"
-                 onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 40px rgba(255,123,84,0.15)'"
-                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <div style="width:80px; height:80px; margin:0 auto 1.5rem; border-radius:24px; background:var(--accent); display:flex; align-items:center; justify-content:center; transform:rotate(-6deg);">
-                    <i class="fas fa-hand-holding-heart" style="font-size:2rem; color:#FFFFFF;"></i>
+            <div class="value-card">
+                <div class="value-card-header">
+                    <div class="value-icon-box">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="value-header-text">
+                        <span class="value-tag">Value 02</span>
+                        <h3 class="value-title">Community First</h3>
+                    </div>
                 </div>
-                <div style="font-size:0.7rem; color:var(--accent); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:0.5rem;">Value 02</div>
-                <h3 style="margin:0 0 0.75rem; font-size:1.3rem; font-weight:800; color:var(--text-heading);">Community First</h3>
-                <p style="color:var(--text-dim); font-size:0.95rem; margin:0; line-height:1.75;">We partner with local farmers, support neighborhood events, and give back to food banks.</p>
+                <div class="value-card-body">
+                    <p class="value-desc">We partner with local farmers, support neighborhood events, and give back to local food banks and shelters.</p>
+                </div>
             </div>
 
             <!-- VALUE 3 -->
-            <div style="background:var(--card-bg); border-radius:28px; padding:2.5rem 2rem; border:1.5px solid var(--border-dim); transition:0.3s; display:flex; gap:1.5rem; align-items:flex-start;"
-                 onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 40px rgba(255,123,84,0.15)'"
-                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <div style="font-size:3.5rem; font-weight:800; color:var(--accent); font-family:var(--heading-font); line-height:1; opacity:0.9; flex-shrink:0;">03</div>
-                <div>
-                    <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
-                        <i class="fas fa-recycle" style="font-size:1.1rem; color:var(--accent);"></i>
-                        <h3 style="margin:0; font-size:1.2rem; font-weight:800; color:var(--text-heading);">Zero Waste Goal</h3>
+            <div class="value-card">
+                <div class="value-card-header">
+                    <div class="value-icon-box">
+                        <i class="fas fa-recycle"></i>
                     </div>
-                    <p style="color:var(--text-dim); font-size:0.95rem; margin:0; line-height:1.75;">Compostable packaging, a strict zero-food-waste program, and ocean-friendly sourcing across our entire supply chain.</p>
+                    <div class="value-header-text">
+                        <span class="value-tag">Value 03</span>
+                        <h3 class="value-title">Zero Waste Goal</h3>
+                    </div>
+                </div>
+                <div class="value-card-body">
+                    <p class="value-desc">Compostable packaging, a strict zero-food-waste program, and ocean-friendly sourcing across our entire supply chain.</p>
                 </div>
             </div>
 
             <!-- VALUE 4 -->
-            <div style="background:var(--footer-bg); border-radius:28px; padding:3rem 2rem; border:1.5px solid var(--accent); text-align:center; transition:0.3s; position:relative; overflow:hidden;"
-                 onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 40px rgba(255,123,84,0.25)'"
-                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <div style="position:absolute; top:-30px; right:-30px; width:120px; height:120px; background:var(--accent); border-radius:50%; opacity:0.15;"></div>
-                <div style="position:relative; z-index:2;">
-                    <div style="width:80px; height:80px; margin:0 auto 1.5rem; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center;">
-                        <i class="fas fa-award" style="font-size:2rem; color:#FFFFFF;"></i>
+            <div class="value-card">
+                <div class="value-card-header">
+                    <div class="value-icon-box">
+                        <i class="fas fa-award"></i>
                     </div>
-                    <div style="font-size:0.7rem; color:var(--accent); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:0.5rem;">Value 04</div>
-                    <h3 style="margin:0 0 0.75rem; font-size:1.3rem; font-weight:800; color:#FFF9F5;">Craft Over Speed</h3>
-                    <p style="color:#B8A89C; font-size:0.95rem; margin:0; line-height:1.75;">We take the time to marinate, ferment, and hand-cut. Every bowl is assembled with intention — never rushed.</p>
+                    <div class="value-header-text">
+                        <span class="value-tag">Value 04</span>
+                        <h3 class="value-title">Craft Over Speed</h3>
+                    </div>
+                </div>
+                <div class="value-card-body">
+                    <p class="value-desc">We take the time to marinate, ferment, and hand-cut. Every bowl is assembled with intention — never rushed.</p>
                 </div>
             </div>
 
@@ -1115,7 +1310,7 @@
 
             <div class="team-card">
                 <div class="team-img-wrap">
-                    <img src="asserts/ab4.jpeg" alt="Chef Maya Tanaka">
+                    <img src="asserts/ab4.jpeg" alt="Chef Maya Tanaka" style="object-position: center 15%;">
                 </div>
                 <div class="team-info">
                     <h3 class="team-name">Maya Tanaka</h3>
@@ -1131,7 +1326,7 @@
 
             <div class="team-card">
                 <div class="team-img-wrap">
-                    <img src="asserts/ab5.jpeg" alt="Daniel Rivera">
+                    <img src="asserts/ab5.jpeg" alt="Daniel Rivera" style="object-position: center 10%;">
                 </div>
                 <div class="team-info">
                     <h3 class="team-name">Daniel Rivera</h3>
@@ -1147,7 +1342,7 @@
 
             <div class="team-card">
                 <div class="team-img-wrap">
-                    <img src="asserts/ab6.jpeg" alt="Aisha Patel">
+                    <img src="asserts/ab6.jpeg" alt="Aisha Patel" style="object-position: center top;">
                 </div>
                 <div class="team-info">
                     <h3 class="team-name">Aisha Patel</h3>
@@ -1163,7 +1358,7 @@
 
             <div class="team-card">
                 <div class="team-img-wrap">
-                    <img src="asserts/ab7.jpeg" alt="Marcus Chen">
+                    <img src="asserts/ab7.jpeg" alt="Marcus Chen" style="object-position: 52% top;">
                 </div>
                 <div class="team-info">
                     <h3 class="team-name">Marcus Chen</h3>
@@ -1231,10 +1426,36 @@
         <div class="footer-main">
             <div class="footer-brand">
                 <a href="index.html" class="logo" style="display:flex; gap:10px;">
-                    <div class="logo-icon"><i class="fas fa-fish"></i></div>
+                    <div class="logo-icon">
+                        <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoFishGrad_about_ftr" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFE2D6" />
+                        </linearGradient>
+                        <linearGradient id="logoBowlGrad_about_ftr" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFF0E6" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M36 7L15 28" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity="0.95"/>
+                    <path d="M40 10L19 30" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/>
+                    <path d="M13 18C11.5 14 14 12 16 14C17 17 14 19 13 18Z" fill="#7AE582"/>
+                    <path d="M14 16.5C15 15.5 16 15.5 16.5 16" stroke="#48B460" stroke-width="0.6" stroke-linecap="round"/>
+                    <path d="M16.5 16C19.5 11.5 27 11.5 32.5 16C28 17.5 25 17 22 20C19 21 16.5 19 16.5 16Z" fill="url(#logoFishGrad_about_ftr)"/>
+                    <path d="M32.5 16L36.5 13.5C35.5 16 35.5 17 36.5 19.5Z" fill="url(#logoFishGrad_about_ftr)"/>
+                    <circle cx="19.5" cy="16.5" r="0.9" fill="#FF6536"/>
+                    <circle cx="21" cy="22" r="0.75" fill="#FFE8DF"/>
+                    <circle cx="26" cy="21" r="0.7" fill="#FFE8DF"/>
+                    <ellipse cx="24" cy="25.5" rx="16.5" ry="2" fill="url(#logoBowlGrad_about_ftr)"/>
+                    <path d="M8.5 26C9.5 35 15.5 40.5 24 40.5C32.5 40.5 38.5 35 39.5 26Z" fill="url(#logoBowlGrad_about_ftr)"/>
+                    <path d="M18.5 41.5H29.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+                    <path d="M13.5 31.5C18 35.5 30 35.5 34.5 31.5" stroke="#FF7B54" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.8"/>
+                </svg>
+                    </div>
                     <div class="logo-text-wrapper">
                         <div class="logo-text">POKE<span> BOWL</span></div>
-                        <span class="logo-tagline">fresh • fusion • vibrant</span>
+                        <span class="logo-tagline"><span class="tagline-fusion">FRESH FUSION</span><span class="tagline-dot"></span><span>VIBRANT</span></span>
                     </div>
                 </a>
                 <p class="footer-tagline">Open 7 days • 11am–9pm. Fresh fusion poke bowls in the heart of the city. Dine in, takeout, or delivery.</p>

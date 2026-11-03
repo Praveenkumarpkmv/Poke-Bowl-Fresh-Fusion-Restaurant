@@ -6,7 +6,7 @@
     <meta name="description" content="Page not found – the bowl you're looking for isn't here.">
     <meta name="robots" content="noindex">
     <title>Page Not Found | Poke Bowl & Fresh Fusion</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF7B54'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23FF7B54'/%3E%3Cpath d='M7 12h10M12 7v10' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FF8F6B%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23E24F1F%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22url%28%23bg%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M24%205L10%2019%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3Cpath%20d%3D%22M27%207L13%2021%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.8%22/%3E%0A%20%20%3Cpath%20d%3D%22M11%2011C13%208%2018%208%2022%2011C19%2012%2017%2012%2015%2014C13%2015%2011%2013%2011%2011Z%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cellipse%20cx%3D%2216%22%20cy%3D%2217%22%20rx%3D%2211%22%20ry%3D%221.4%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cpath%20d%3D%22M6%2017.5C6.5%2023.5%2010.5%2027%2016%2027C21.5%2027%2025.5%2023.5%2026%2017.5Z%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cpath%20d%3D%22M12%2028H20%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.4%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3Ccircle%20cx%3D%229.5%22%20cy%3D%2211.5%22%20r%3D%221.3%22%20fill%3D%22%237AE582%22/%3E%0A%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -339,13 +339,17 @@
             font-weight: 600;
         }
         .error-footer-logo {
-            width: 2rem; height: 2rem;
-            background: var(--accent);
-            border-radius: 0.6rem;
+            width: 2.4rem; height: 2.4rem;
+            background: linear-gradient(135deg, #FF8F6B 0%, var(--accent) 52%, #E24F1F 100%);
+            border-radius: 0.75rem;
             display: flex; align-items: center; justify-content: center;
             color: #FFFFFF;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 12px rgba(255,123,84,0.35);
+            border: 1px solid rgba(255,255,255,0.22);
+            box-shadow: 0 6px 16px rgba(255,123,84,0.38), inset 0 1px 1.5px rgba(255,255,255,0.45);
+        }
+        .error-footer-logo svg {
+            width: 82%; height: 82%;
+            display: block;
         }
         .error-footer strong {
             color: var(--text-heading);
@@ -435,8 +439,34 @@
         </div>
 
         <div class="error-footer">
-            <div class="error-footer-logo"><i class="fas fa-fish"></i></div>
-            <div><strong>POKE<span> BOWL</span></strong> · fresh • fusion • vibrant</div>
+            <div class="error-footer-logo">
+                <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoFishGrad_404" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFE2D6" />
+                        </linearGradient>
+                        <linearGradient id="logoBowlGrad_404" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFF0E6" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M36 7L15 28" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity="0.95"/>
+                    <path d="M40 10L19 30" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/>
+                    <path d="M13 18C11.5 14 14 12 16 14C17 17 14 19 13 18Z" fill="#7AE582"/>
+                    <path d="M14 16.5C15 15.5 16 15.5 16.5 16" stroke="#48B460" stroke-width="0.6" stroke-linecap="round"/>
+                    <path d="M16.5 16C19.5 11.5 27 11.5 32.5 16C28 17.5 25 17 22 20C19 21 16.5 19 16.5 16Z" fill="url(#logoFishGrad_404)"/>
+                    <path d="M32.5 16L36.5 13.5C35.5 16 35.5 17 36.5 19.5Z" fill="url(#logoFishGrad_404)"/>
+                    <circle cx="19.5" cy="16.5" r="0.9" fill="#FF6536"/>
+                    <circle cx="21" cy="22" r="0.75" fill="#FFE8DF"/>
+                    <circle cx="26" cy="21" r="0.7" fill="#FFE8DF"/>
+                    <ellipse cx="24" cy="25.5" rx="16.5" ry="2" fill="url(#logoBowlGrad_404)"/>
+                    <path d="M8.5 26C9.5 35 15.5 40.5 24 40.5C32.5 40.5 38.5 35 39.5 26Z" fill="url(#logoBowlGrad_404)"/>
+                    <path d="M18.5 41.5H29.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+                    <path d="M13.5 31.5C18 35.5 30 35.5 34.5 31.5" stroke="#FF7B54" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.8"/>
+                </svg>
+            </div>
+            <div><strong>POKE<span> BOWL</span></strong> · <span style="color:var(--accent); font-weight:800; letter-spacing:0.08em;">FRESH FUSION</span> · VIBRANT</div>
         </div>
 
     </main>

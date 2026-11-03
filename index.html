@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Poke Bowl & Fresh Fusion – vibrant, colorful restaurant. Build your bowl, explore fresh flavors, and enjoy fusion cuisine.">
     <title>Poke Bowl & Fresh Fusion | Build Your Bowl</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF7B54'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23FF7B54'/%3E%3Cpath d='M7 12h10M12 7v10' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FF8F6B%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23E24F1F%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22url%28%23bg%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M24%205L10%2019%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3Cpath%20d%3D%22M27%207L13%2021%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.8%22/%3E%0A%20%20%3Cpath%20d%3D%22M11%2011C13%208%2018%208%2022%2011C19%2012%2017%2012%2015%2014C13%2015%2011%2013%2011%2011Z%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cellipse%20cx%3D%2216%22%20cy%3D%2217%22%20rx%3D%2211%22%20ry%3D%221.4%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cpath%20d%3D%22M6%2017.5C6.5%2023.5%2010.5%2027%2016%2027C21.5%2027%2025.5%2023.5%2026%2017.5Z%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cpath%20d%3D%22M12%2028H20%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.4%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3Ccircle%20cx%3D%229.5%22%20cy%3D%2211.5%22%20r%3D%221.3%22%20fill%3D%22%237AE582%22/%3E%0A%3C/svg%3E">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts: Baloo 2 + Inter (fresh, friendly) -->
@@ -91,60 +91,107 @@
         [dir="rtl"] .footer-main,
         [dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
         [dir="rtl"] .signature-item { flex-direction: row-reverse; }
-        [dir="rtl"] .service-flow-item {
-            border-right: none;
-            border-left: 1px solid var(--border-dim);
-        }
-        [dir="rtl"] .service-flow-item:last-child { border-left: none; }
+        /* [dir="rtl"] .service-flow-item has card borders */
         [dir="rtl"] .footer-links a:hover { transform: translateX(-5px); }
         [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
 
-        /* ===== LOGO ===== */
+                /* ===== REFINED ARTISANAL LOGO ===== */
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 0.75rem;
             text-decoration: none;
             flex-shrink: 0;
             line-height: 1;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .logo:hover { transform: scale(1.02); }
+        .logo:hover {
+            transform: translateY(-1px) scale(1.02);
+        }
         .logo-icon {
             width: 3rem;
             height: 3rem;
-            background: var(--accent);
-            border-radius: 0.9rem;
+            background: linear-gradient(135deg, #FF8F6B 0%, var(--accent) 52%, #E24F1F 100%);
+            border-radius: 0.95rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #FFFFFF;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(255,123,84,0.35);
+            box-shadow: 0 6px 18px rgba(255,123,84,0.38), inset 0 1px 1.5px rgba(255,255,255,0.45);
+            border: 1.5px solid rgba(255,255,255,0.22);
             flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .logo-icon::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 60%);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        .logo:hover .logo-icon {
+            transform: rotate(-3deg) scale(1.06);
+            box-shadow: 0 10px 24px rgba(255,123,84,0.52), inset 0 1.5px 2px rgba(255,255,255,0.6);
+        }
+        .logo-icon .logo-mark {
+            width: 82%;
+            height: 82%;
+            display: block;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+        }
+        .logo:hover .logo-icon .logo-mark {
+            transform: scale(1.04);
         }
         .logo-text-wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            line-height: 1.15;
+            line-height: 1.1;
         }
         .logo-text {
             white-space: nowrap;
-            font-size: 1.4rem;
+            font-size: 1.38rem;
             font-weight: 800;
             color: var(--text-heading);
             font-family: var(--heading-font);
             letter-spacing: -0.02em;
+            display: flex;
+            align-items: baseline;
+            gap: 0.15rem;
         }
-        .logo-text span { color: var(--accent); }
+        .logo-text span {
+            color: var(--accent);
+            position: relative;
+        }
         .logo-tagline {
-            font-size: 0.6rem;
+            font-size: 0.62rem;
             color: var(--text-dim);
-            font-weight: 600;
-            letter-spacing: 0.1em;
+            font-weight: 700;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            margin-top: 0.1rem;
+            margin-top: 0.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
         }
+        .logo-tagline .tagline-fusion {
+            color: var(--accent);
+            font-weight: 800;
+            letter-spacing: 0.14em;
+        }
+        .logo-tagline .tagline-dot {
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.7;
+        }
+        [dir="rtl"] .logo-text-wrapper { text-align: right; }
 
         /* ===== NAVBAR ===== */
         .navbar-container {
@@ -660,13 +707,88 @@
         .section-badge { color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; font-size: 0.75rem; display: block; margin-bottom: 0.5rem; }
         .section-title { font-size: 2.8rem; margin-bottom: 1rem; color: var(--text-heading); }
 
-        .services-flow { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; margin-top: 2rem; }
-        .service-flow-item { flex: 1; min-width: 220px; text-align: center; padding: 2rem 1rem; border-right: 1px solid var(--border-dim); transition: 0.2s; }
-        .service-flow-item:last-child { border-right: none; }
-        .service-flow-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; transition: 0.2s; }
-        .service-flow-item:hover .service-flow-icon { transform: scale(1.1) rotate(5deg); }
-        .service-flow-item h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-heading); }
-        .service-flow-item p { color: var(--text-dim); font-weight: 500; }
+        /* Fresh Picks Cards with Images */
+        .services-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.75rem;
+            margin-top: 2.5rem;
+        }
+        .service-flow-item {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 1.25rem;
+            border: 1.5px solid var(--border-dim);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .service-flow-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255,123,84,0.16);
+            border-color: var(--accent);
+        }
+        .service-flow-img-wrap {
+            width: 100%;
+            height: 185px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            background: var(--bg-secondary);
+        }
+        .service-flow-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-flow-item:hover .service-flow-img-wrap img {
+            transform: scale(1.08);
+        }
+        .flow-pill {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 0.75rem;
+            background: rgba(26, 20, 16, 0.82);
+            backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            z-index: 2;
+        }
+        .flow-pill i {
+            color: var(--accent);
+        }
+        [dir="rtl"] .flow-pill {
+            left: auto;
+            right: 0.75rem;
+        }
+        .service-flow-item h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text-heading);
+            font-family: var(--heading-font);
+        }
+        .service-flow-item p {
+            color: var(--text-dim);
+            font-weight: 500;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin: 0;
+        }
 
         /* Build Your Bowl Preview Section */
         .build-bowl-preview-grid {
@@ -809,6 +931,8 @@
         .footer .logo .logo-text { color: #FFF9F5; }
         .footer .logo .logo-text span { color: var(--accent); }
         .footer .logo .logo-tagline { color: #B8A89C; }
+        .footer .logo .logo-tagline .tagline-fusion { color: var(--accent); }
+        .footer .logo .logo-icon { background: linear-gradient(135deg, #FF8F6B 0%, var(--accent) 52%, #E24F1F 100%); }
         .footer .logo .logo-icon { background: var(--accent); }
         
         .footer-tagline { color: var(--footer-text); font-size: 0.875rem; max-width: 300px; margin-top: 1rem; }
@@ -905,11 +1029,37 @@
 <body>
 <nav class="navbar-container">
     <div class="navbar-flex">
-        <a href="#" class="logo">
-            <div class="logo-icon"><i class="fas fa-fish"></i></div>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoFishGrad_index_nav" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFE2D6" />
+                        </linearGradient>
+                        <linearGradient id="logoBowlGrad_index_nav" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFF0E6" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M36 7L15 28" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity="0.95"/>
+                    <path d="M40 10L19 30" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/>
+                    <path d="M13 18C11.5 14 14 12 16 14C17 17 14 19 13 18Z" fill="#7AE582"/>
+                    <path d="M14 16.5C15 15.5 16 15.5 16.5 16" stroke="#48B460" stroke-width="0.6" stroke-linecap="round"/>
+                    <path d="M16.5 16C19.5 11.5 27 11.5 32.5 16C28 17.5 25 17 22 20C19 21 16.5 19 16.5 16Z" fill="url(#logoFishGrad_index_nav)"/>
+                    <path d="M32.5 16L36.5 13.5C35.5 16 35.5 17 36.5 19.5Z" fill="url(#logoFishGrad_index_nav)"/>
+                    <circle cx="19.5" cy="16.5" r="0.9" fill="#FF6536"/>
+                    <circle cx="21" cy="22" r="0.75" fill="#FFE8DF"/>
+                    <circle cx="26" cy="21" r="0.7" fill="#FFE8DF"/>
+                    <ellipse cx="24" cy="25.5" rx="16.5" ry="2" fill="url(#logoBowlGrad_index_nav)"/>
+                    <path d="M8.5 26C9.5 35 15.5 40.5 24 40.5C32.5 40.5 38.5 35 39.5 26Z" fill="url(#logoBowlGrad_index_nav)"/>
+                    <path d="M18.5 41.5H29.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+                    <path d="M13.5 31.5C18 35.5 30 35.5 34.5 31.5" stroke="#FF7B54" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.8"/>
+                </svg>
+            </div>
             <div class="logo-text-wrapper">
                 <div class="logo-text">POKE<span> BOWL</span></div>
-                <span class="logo-tagline">fresh • fusion • vibrant</span>
+                <span class="logo-tagline"><span class="tagline-fusion">FRESH FUSION</span><span class="tagline-dot"></span><span>VIBRANT</span></span>
             </div>
         </a>
         
@@ -945,9 +1095,36 @@
 <div id="mobile-menu" class="mobile-menu">
     <div class="mobile-menu-header">
         <a href="index.html" class="logo">
-            <div class="logo-icon"><i class="fas fa-fish"></i></div>
+            <div class="logo-icon">
+                <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoFishGrad_index_mob" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFE2D6" />
+                        </linearGradient>
+                        <linearGradient id="logoBowlGrad_index_mob" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFF0E6" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M36 7L15 28" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity="0.95"/>
+                    <path d="M40 10L19 30" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/>
+                    <path d="M13 18C11.5 14 14 12 16 14C17 17 14 19 13 18Z" fill="#7AE582"/>
+                    <path d="M14 16.5C15 15.5 16 15.5 16.5 16" stroke="#48B460" stroke-width="0.6" stroke-linecap="round"/>
+                    <path d="M16.5 16C19.5 11.5 27 11.5 32.5 16C28 17.5 25 17 22 20C19 21 16.5 19 16.5 16Z" fill="url(#logoFishGrad_index_mob)"/>
+                    <path d="M32.5 16L36.5 13.5C35.5 16 35.5 17 36.5 19.5Z" fill="url(#logoFishGrad_index_mob)"/>
+                    <circle cx="19.5" cy="16.5" r="0.9" fill="#FF6536"/>
+                    <circle cx="21" cy="22" r="0.75" fill="#FFE8DF"/>
+                    <circle cx="26" cy="21" r="0.7" fill="#FFE8DF"/>
+                    <ellipse cx="24" cy="25.5" rx="16.5" ry="2" fill="url(#logoBowlGrad_index_mob)"/>
+                    <path d="M8.5 26C9.5 35 15.5 40.5 24 40.5C32.5 40.5 38.5 35 39.5 26Z" fill="url(#logoBowlGrad_index_mob)"/>
+                    <path d="M18.5 41.5H29.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+                    <path d="M13.5 31.5C18 35.5 30 35.5 34.5 31.5" stroke="#FF7B54" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.8"/>
+                </svg>
+            </div>
             <div class="logo-text-wrapper">
                 <div class="logo-text">POKE<span> BOWL</span></div>
+                <span class="logo-tagline"><span class="tagline-fusion">FRESH FUSION</span></span>
             </div>
         </a>
         <button class="mobile-menu-close" id="close-mobile-menu"><i class="fas fa-times"></i></button>
@@ -1077,22 +1254,34 @@
         </div>
         <div class="services-flow">
             <div class="service-flow-item">
-                <div class="service-flow-icon"><i class="fas fa-fish"></i></div>
+                <div class="service-flow-img-wrap">
+                    <img src="asserts/os9.avif" alt="Daily Catch - Fresh sushi-grade seafood">
+                    <span class="flow-pill"><i class="fas fa-certificate"></i> Sushi Grade</span>
+                </div>
                 <h3>Daily Catch</h3>
                 <p>Sustainably sourced, cut fresh every morning. We partner with local fisheries to bring you the best.</p>
             </div>
             <div class="service-flow-item">
-                <div class="service-flow-icon"><i class="fas fa-carrot"></i></div>
+                <div class="service-flow-img-wrap">
+                    <img src="asserts/bb1.avif" alt="Farm Veggies - Organic fresh bowl vegetables">
+                    <span class="flow-pill"><i class="fas fa-leaf"></i> 100% Organic</span>
+                </div>
                 <h3>Farm Veggies</h3>
                 <p>Local, organic produce delivered daily from nearby farms. Crisp, colorful, and full of flavor.</p>
             </div>
             <div class="service-flow-item">
-                <div class="service-flow-icon"><i class="fas fa-mortar-pestle"></i></div>
+                <div class="service-flow-img-wrap">
+                    <img src="asserts/os8.avif" alt="House Sauces - Handcrafted signature sauce batches">
+                    <span class="flow-pill"><i class="fas fa-pepper-hot"></i> Made In-House</span>
+                </div>
                 <h3>House Sauces</h3>
                 <p>Signature blends made in-house with real ingredients. From spicy sriracha aioli to tangy ponzu.</p>
             </div>
             <div class="service-flow-item">
-                <div class="service-flow-icon"><i class="fas fa-bolt"></i></div>
+                <div class="service-flow-img-wrap">
+                    <img src="asserts/bb2.avif" alt="Fast & Fresh - Custom poke bowl assembled to order">
+                    <span class="flow-pill"><i class="fas fa-bolt"></i> Made To Order</span>
+                </div>
                 <h3>Fast & Fresh</h3>
                 <p>Ready in minutes, never pre-made. Your bowl is assembled right in front of you — fresh to order.</p>
             </div>
@@ -1318,11 +1507,37 @@
     <div class="container">
         <div class="footer-main">
             <div class="footer-brand">
-                <a href="#" class="logo" style="display:flex; gap:10px;">
-                    <div class="logo-icon"><i class="fas fa-fish"></i></div>
+                <a href="index.html" class="logo" style="display:flex; gap:10px;">
+                    <div class="logo-icon">
+                        <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoFishGrad_index_ftr" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFE2D6" />
+                        </linearGradient>
+                        <linearGradient id="logoBowlGrad_index_ftr" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="100%" stop-color="#FFF0E6" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M36 7L15 28" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity="0.95"/>
+                    <path d="M40 10L19 30" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/>
+                    <path d="M13 18C11.5 14 14 12 16 14C17 17 14 19 13 18Z" fill="#7AE582"/>
+                    <path d="M14 16.5C15 15.5 16 15.5 16.5 16" stroke="#48B460" stroke-width="0.6" stroke-linecap="round"/>
+                    <path d="M16.5 16C19.5 11.5 27 11.5 32.5 16C28 17.5 25 17 22 20C19 21 16.5 19 16.5 16Z" fill="url(#logoFishGrad_index_ftr)"/>
+                    <path d="M32.5 16L36.5 13.5C35.5 16 35.5 17 36.5 19.5Z" fill="url(#logoFishGrad_index_ftr)"/>
+                    <circle cx="19.5" cy="16.5" r="0.9" fill="#FF6536"/>
+                    <circle cx="21" cy="22" r="0.75" fill="#FFE8DF"/>
+                    <circle cx="26" cy="21" r="0.7" fill="#FFE8DF"/>
+                    <ellipse cx="24" cy="25.5" rx="16.5" ry="2" fill="url(#logoBowlGrad_index_ftr)"/>
+                    <path d="M8.5 26C9.5 35 15.5 40.5 24 40.5C32.5 40.5 38.5 35 39.5 26Z" fill="url(#logoBowlGrad_index_ftr)"/>
+                    <path d="M18.5 41.5H29.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+                    <path d="M13.5 31.5C18 35.5 30 35.5 34.5 31.5" stroke="#FF7B54" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.8"/>
+                </svg>
+                    </div>
                     <div class="logo-text-wrapper">
                         <div class="logo-text">POKE<span> BOWL</span></div>
-                        <span class="logo-tagline">fresh • fusion • vibrant</span>
+                        <span class="logo-tagline"><span class="tagline-fusion">FRESH FUSION</span><span class="tagline-dot"></span><span>VIBRANT</span></span>
                     </div>
                 </a>
                 <p class="footer-tagline">Open 7 days • 11am–9pm. Fresh fusion poke bowls in the heart of the city. Dine in, takeout, or delivery.</p>
